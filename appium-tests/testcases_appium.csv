@@ -1,0 +1,6 @@
+id,suite,name,description,screen,priority,type
+AT-001,Auth,App launch,App launches to splash/login screen,Splash,High,app
+AT-002,Auth,Login valid,Login with demo account and reach dashboard,Login,High,app
+AT-003,Auth,Login invalid,Invalid credentials show error,Login,High,app
+AT-004,Auth,Logout,Logout clears session and returns to login,Dashboard,Medium,app
+AT-005,Profile,Edit profile,Edit and save profile details,Profile,Medium,app

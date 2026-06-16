@@ -1,0 +1,92 @@
+name: Selenium E2E Tests
+
+on:
+  push:
+    branches: [ main, develop, master ]
+  pull_request:
+    branches: [ main, develop, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Install root dependencies
+      run: npm install --legacy-peer-deps
+
+    - name: Install backend dependencies
+      run: npm install
+      working-directory: backend
+
+    - name: Install frontend dependencies
+      run: npm install --legacy-peer-deps
+      working-directory: frontend
+
+    - name: Install test dependencies
+      run: npm install
+      working-directory: selenium-tests
+
+    - name: Start backend server
+      run: npm run dev &
+      working-directory: backend
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL || 'postgresql://test:test@localhost:5432/tradementor_test' }}
+
+    - name: Start frontend server
+      run: npm run dev &
+      working-directory: frontend
+      env:
+        NEXT_PUBLIC_API_URL: http://localhost:4000
+
+    - name: Wait for services to start
+      run: |
+        sleep 15
+        npx wait-on http://localhost:3000 --timeout 60000
+        npx wait-on http://localhost:4000 --timeout 60000
+
+    - name: Run Selenium E2E tests
+      run: npm test
+      working-directory: selenium-tests
+      env:
+        BASE_URL: http://localhost:3000
+        API_URL: http://localhost:4000
+        BROWSER: chrome
+        HEADLESS: true
+        TEST_EMAIL: demo@tradementor.com
+        TEST_PASSWORD: User@123456
+
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results
+        path: selenium-tests/test-results/
+
+    - name: Upload screenshots on failure
+      if: failure()
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-screenshots
+        path: selenium-tests/screenshots/
+
+    - name: Test Report
+      if: always()
+      run: |
+        echo "# Selenium E2E Test Report" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "- Backend: Running on http://localhost:4000" >> $GITHUB_STEP_SUMMARY
+        echo "- Frontend: Running on http://localhost:3000" >> $GITHUB_STEP_SUMMARY
+        echo "- Tests: Completed" >> $GITHUB_STEP_SUMMARY

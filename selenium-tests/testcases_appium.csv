@@ -1,0 +1,51 @@
+id,suite,name,description,screen,priority,type
+AT-001,Auth,App launch,App launches to splash/login screen,Splash,High,app
+AT-002,Auth,Login valid,Login with demo account and reach dashboard,Login,High,app
+AT-003,Auth,Login invalid,Invalid credentials show error,Login,High,app
+AT-004,Auth,Logout,Logout clears session and returns to login,Dashboard,Medium,app
+AT-005,Profile,Edit profile,Edit and save profile details,Profile,Medium,app
+AT-006,Profile,Upload avatar,Upload avatar from gallery,Profile,Low,app
+AT-007,Portfolio,Open portfolio,Open portfolio screen,Portfolio,High,app
+AT-008,Portfolio,Add position,Add position via app UI,Portfolio,Medium,app
+AT-009,Watchlist,Add symbol,Add symbol to watchlist,Watchlist,Medium,app
+AT-010,Watchlist,Remove symbol,Remove symbol from watchlist,Watchlist,Medium,app
+AT-011,Orders,Place order,Place order through mobile UI,Orders,High,app
+AT-012,Orders,Cancel order,Cancel order from orders list,Orders,High,app
+AT-013,Notifications,View notifications,Open notifications list,Notifications,Low,app
+AT-014,Notifications,Mark read,Mark notification as read,Notifications,Low,app
+AT-015,Search,Search stock,Search for a stock symbol,Search,Medium,app
+AT-016,Charts,View chart,Open trading chart,StockDetail,Medium,app
+AT-017,Settings,Toggle theme,Change app theme,Settings,Low,app
+AT-018,Subscription,View billing,Open subscription/billing screen,Billing,Medium,app
+AT-019,AI,Open assistant,Open AI assistant,AI,Medium,app
+AT-020,AI,Generate insight,Request insight and view result,AI,Medium,app
+AT-021,Help,Open help,Access help center,Help,Low,app
+AT-022,Security,Change password,Change user password,Settings,Medium,app
+AT-023,Security,MFA setup,Set up 2FA,Settings,Medium,app
+AT-024,Analytics,View analytics,Open analytics screen,Analytics,Low,app
+AT-025,Reports,Download report,Generate and download report,Reports,Low,app
+AT-026,Integrations,Connect broker,Connect broker account,Integrations,High,app
+AT-027,Integrations,Disconnect broker,Disconnect broker account,Integrations,Low,app
+AT-028,Alerts,Create alert,Create price alert,Alerts,Medium,app
+AT-029,Alerts,Delete alert,Delete existing alert,Alerts,Low,app
+AT-030,Onboarding,Complete tutorial,Complete onboarding tutorial,Onboarding,Low,app
+AT-031,Performance,App responsiveness,App remains responsive under load,App,High,app
+AT-032,Offline,Offline mode,App handles offline gracefully,App,Medium,app
+AT-033,DeepLink,Open via deep link,Open specific screen via deep link,DeepLink,Low,app
+AT-034,Push,Receive push,App receives push notifications,App,Low,app
+AT-035,Database,Local cache,Data caches locally and syncs,App,Medium,app
+AT-036,Login,Remember me,Remember login state option,Login,Low,app
+AT-037,Profile,View KYC,Open KYC status screen,Profile,Low,app
+AT-038,Security,Backup codes,Generate 2FA backup codes,Settings,Low,app
+AT-039,Notifications,Preferences,Update notification preferences,Settings,Low,app
+AT-040,Transactions,View history,View transaction history,Transactions,Medium,app
+AT-041,Charts,Indicator toggle,Toggle indicators on charts,StockDetail,Low,app
+AT-042,Sync,Background sync,Background data sync occurs,App,Medium,app
+AT-043,Permissions,Request permissions,App requests necessary permissions,App,Low,app
+AT-044,Localization,Language switch,Switch app language,Settings,Low,app
+AT-045,Accessibility,Large text,Supports large text modes,Settings,Low,app
+AT-046,Crash,Crash recovery,App recovers from crashes,App,High,app
+AT-047,Sessions,Concurrent sessions,Multiple sessions handled,App,Low,app
+AT-048,Security,Session timeout,Session times out after inactivity,App,Medium,app
+AT-049,Feedback,Submit feedback,Submit feedback via app,Help,Low,app
+AT-050,Referral,Refer friend,Refer friend flow,Referrals,Low,app

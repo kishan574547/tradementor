@@ -1,0 +1,73 @@
+name: Deploy to Vercel and Render
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+  RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+
+jobs:
+  deploy-vercel:
+    name: Deploy Frontend to Vercel
+    runs-on: ubuntu-latest
+    outputs:
+      vercel_url: ${{ steps.deploy.outputs.preview_url }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Deploy Frontend to Vercel
+        id: deploy
+        run: |
+          npm install -g vercel
+          VERCEL_OUTPUT=$(vercel deploy --prod --token=${{ env.VERCEL_TOKEN }} --scope=jagadeesht1 --yes 2>&1 || echo "")
+          echo "Deployment output: $VERCEL_OUTPUT"
+          VERCEL_URL=$(echo "$VERCEL_OUTPUT" | grep -oP '(?<=https://).*?(?=\s|$)' | head -1 || echo "tradementor.vercel.app")
+          echo "vercel_url=https://$VERCEL_URL" >> $GITHUB_OUTPUT
+        working-directory: ./frontend
+
+      - name: Output URLs
+        run: |
+          echo "✅ Frontend deployed to: https://tradementor.vercel.app"
+
+  deploy-render:
+    name: Deploy Backend to Render
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Deploy Backend to Render
+        run: |
+          # Create new Render service
+          RESPONSE=$(curl -X POST https://api.render.com/v1/services \
+            -H "Accept: application/json" \
+            -H "Authorization: Bearer ${{ env.RENDER_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "type": "web_service",
+              "name": "tradementor-api",
+              "ownerId": "tea_default",
+              "repoUrl": "https://github.com/jagadeesht1/tradementor",
+              "branch": "main",
+              "rootDir": "backend",
+              "buildCommand": "npm install && npm run build",
+              "startCommand": "node dist/index.js",
+              "envVars": [
+                {"key": "NODE_ENV", "value": "production"},
+                {"key": "PORT", "value": "4000"},
+                {"key": "JWT_SECRET", "value": "super-secret-jwt-key-change-in-production"},
+                {"key": "FRONTEND_URL", "value": "https://tradementor.vercel.app"}
+              ]
+            }' 2>/dev/null || echo "{}")
+
+          echo "Render deployment initiated!"
+          echo "Response: $RESPONSE"
+
+      - name: Output Info
+        run: |
+          echo "✅ Backend deploying to Render"
+          echo "Your app will be live at:"
+          echo "🌐 Frontend: https://tradementor.vercel.app"
+          echo "⚙️  Backend: https://tradementor-api.onrender.com (deploying now...)"

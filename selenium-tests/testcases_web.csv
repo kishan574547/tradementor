@@ -1,0 +1,81 @@
+id,suite,name,description,route,priority,type
+WT-001,Login,Load login page,Verify login page loads and elements render,/login,High,web
+WT-002,Login,Login valid,Login with demo credentials and reach dashboard,/login,High,web
+WT-003,Login,Login invalid,Attempt login with invalid creds and expect error,/login,High,web
+WT-004,Login,Prefilled credentials,Check demo email/password are prefilled,/login,Medium,web
+WT-005,Login,Register link,Click register link and navigate to /register,/login,Low,web
+WT-006,Login,Email required,Email field shows required validation,/login,Medium,web
+WT-007,Login,Password required,Password field shows required validation,/login,Medium,web
+WT-008,Auth,Logout,Logout clears session and redirects to /login,/dashboard,High,web
+WT-009,Auth,Session persistence,Session persists across pages,/dashboard,High,web
+WT-010,Dashboard,Load dashboard,Dashboard loads after login,/dashboard,High,web
+WT-011,Dashboard,Header visible,Header and nav are displayed,/dashboard,Medium,web
+WT-012,Dashboard,Open notifications,Open notifications panel,/dashboard,Low,web
+WT-013,Portfolio,Load portfolio,Portfolio page loads,/dashboard/portfolio,High,web
+WT-014,Portfolio,Portfolio list,Portfolio list shows items,/dashboard/portfolio,High,web
+WT-015,Portfolio,Add position,Add a position flow (UI),/dashboard/portfolio,Medium,web
+WT-016,Watchlist,Load watchlist,Watchlist page loads,/dashboard/watchlist,High,web
+WT-017,Watchlist,Add symbol,Add a symbol to watchlist,/dashboard/watchlist,Medium,web
+WT-018,Watchlist,Remove symbol,Remove a symbol from watchlist,/dashboard/watchlist,Medium,web
+WT-019,Orders,Create order,Create an order from UI,/dashboard/orders,High,web
+WT-020,Orders,Cancel order,Cancel an existing order,/dashboard/orders,High,web
+WT-021,Signals,Access signals,Open signals page,/dashboard/signals,Medium,web
+WT-022,Signals,Filter signals,Apply filter to signals list,/dashboard/signals,Low,web
+WT-023,Stocks,Search stock,Search for stock symbol in search box,/,Medium,web
+WT-024,Stocks,Stock detail,Open stock detail page,/stock/TSLA,High,web
+WT-025,Charts,Load trading chart,Trading chart renders,/stock/TSLA,High,web
+WT-026,Charts,Indicator toggle,Toggle indicators on chart,/stock/TSLA,Medium,web
+WT-027,AI,Open AI assistant,Open AI assistant page,/dashboard/ai-assistant,Medium,web
+WT-028,AI,Generate insight,Request AI insight and display results,/dashboard/ai-insights,Medium,web
+WT-029,Notifications,Mark read,Mark notifications as read,/dashboard/notifications,Low,web
+WT-030,Profile,Edit profile,Edit and save profile details,/dashboard/profile,Medium,web
+WT-031,Billing,Subscription status,Verify subscription info loads,/dashboard/subscription,Medium,web
+WT-032,Backtester,Run backtest,Run a backtest and show results,/dashboard/backtester,Low,web
+WT-033,Indicators,Indicator list,List available indicators,/dashboard/indicators,Low,web
+WT-034,Screener,Open screener,Open stock screener page,/dashboard/screener,Medium,web
+WT-035,Screener,Apply filter,Apply screener filters and results update,/dashboard/screener,Medium,web
+WT-036,Integrations,API keys,View API keys page,/dashboard/api-keys,Low,web
+WT-037,Help,Open help,Open help center,/dashboard/help,Low,web
+WT-038,Notifications,Open notification settings,Open notifications settings page,/dashboard/notifications,Low,web
+WT-039,Search,Global search,Use global search to find stocks,/ ,Medium,web
+WT-040,Reports,Generate report,Generate a portfolio report,/dashboard/reports,Low,web
+WT-041,Analytics,Open analytics,Open analytics page,/dashboard/analytics,Medium,web
+WT-042,Leaderboard,Open leaderboard,Open competitions leaderboard,/dashboard/leaderboard,Low,web
+WT-043,Competitions,Join competition,Join a competition flow,/dashboard/competitions,Low,web
+WT-044,Help,Open tutorials,Open tutorials page,/dashboard/tutorials,Low,web
+WT-045,Settings,Change theme,Toggle dark/light theme,/dashboard/settings,Low,web
+WT-046,Profile,Upload avatar,Upload avatar image,/dashboard/profile,Low,web
+WT-047,Notifications,Receive push,Simulate receiving push notification,/,Low,web
+WT-048,Subscription,Billing info,Update billing information,/dashboard/billing,Medium,web
+WT-049,Payments,Make payment,Make a payment flow,/dashboard/billing,High,web
+WT-050,Reports,Download CSV,Download report as CSV,/dashboard/reports,Low,web
+WT-051,Sessions,Concurrent sessions,Handle multiple concurrent sessions,/dashboard,Low,web
+WT-052,Security,MFA setup,Set up multi-factor auth,/dashboard/settings,Medium,web
+WT-053,Security,Change password,Change user password,/dashboard/profile,Medium,web
+WT-054,Notifications,Email preferences,Update email notification prefs,/dashboard/settings,Low,web
+WT-055,Referrals,Refer friend,Refer user flow,/dashboard/referrals,Low,web
+WT-056,Help,Glossary,Open glossary page,/dashboard/glossary,Low,web
+WT-057,API,Fetch market data,Market data endpoint returns data,/,High,web
+WT-058,AI,Recommendations,Get AI recommendations,/dashboard/ai-recommendations,Medium,web
+WT-059,Integrations,Connect broker,Connect a broker account,/dashboard/integrations,High,web
+WT-060,Orders,Order history,View order history,/dashboard/orders,Medium,web
+WT-061,Portfolio,Export portfolio,Export portfolio data,/dashboard/portfolio,Low,web
+WT-062,Positions,Open positions,View open positions,/dashboard/positions,Medium,web
+WT-063,Positions,Close position,Close a position flow,/dashboard/positions,High,web
+WT-064,Notifications,Clear all,Clear all notifications,/dashboard/notifications,Low,web
+WT-065,Search,Autocomplete,Search autocomplete suggests symbols,/,Medium,web
+WT-066,Settings,Privacy page,Open privacy page,/privacy,Low,web
+WT-067,Terms,Terms page,Open terms page,/terms,Low,web
+WT-068,About,About page,Open about page,/about,Low,web
+WT-069,Help,Contact support,Open contact support form,/dashboard/help,Low,web
+WT-070,AI,Chat history,Open AI chat history,/dashboard/ai-assistant,Low,web
+WT-071,Notifications,Notification badge,Badge updates on new notifications,/,Low,web
+WT-072,Dashboard,Widgets reorder,Reorder dashboard widgets,/dashboard,Low,web
+WT-073,Trades,Simulate trade,Simulate placing a trade,/dashboard/orders,High,web
+WT-074,Integrations,Disconnect broker,Disconnect broker flow,/dashboard/integrations,Low,web
+WT-075,Analytics,Export analytics,Export analytics CSV,/dashboard/analytics,Low,web
+WT-076,Profile,2FA backup codes,Generate 2FA backup codes,/dashboard/settings,Low,web
+WT-077,Backtester,Save strategy,Save backtest strategy,/dashboard/backtester,Low,web
+WT-078,Competitions,Leaderboard filter,Filter leaderboard by timeframe,/dashboard/leaderboard,Low,web
+WT-079,Screener,Save screener,Save screener settings,/dashboard/screener,Low,web
+WT-080,Alerts,Create alert,Create price alert,/dashboard/alerts,Medium,web

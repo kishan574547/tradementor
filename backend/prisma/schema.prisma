@@ -1,0 +1,162 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum SubscriptionTier {
+  FREE
+  PRO
+  ENTERPRISE
+}
+
+enum SignalType {
+  BUY
+  SELL
+  HOLD
+}
+
+enum OrderSide {
+  BUY
+  SELL
+}
+
+enum OrderStatus {
+  PENDING
+  FILLED
+  CANCELLED
+}
+
+model User {
+  id            String           @id @default(cuid())
+  email         String           @unique
+  password      String
+  name          String
+  role          Role             @default(USER)
+  avatar        String?
+  subscription  SubscriptionTier @default(FREE)
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
+  watchlists    Watchlist[]
+  portfolios    Portfolio[]
+  orders        Order[]
+  notifications Notification[]
+  chatMessages  ChatMessage[]
+  alerts        PriceAlert[]
+}
+
+model Watchlist {
+  id        String          @id @default(cuid())
+  name      String          @default("My Watchlist")
+  userId    String
+  user      User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items     WatchlistItem[]
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @updatedAt
+}
+
+model WatchlistItem {
+  id          String    @id @default(cuid())
+  symbol      String
+  watchlistId String
+  watchlist   Watchlist @relation(fields: [watchlistId], references: [id], onDelete: Cascade)
+  addedAt     DateTime  @default(now())
+
+  @@unique([watchlistId, symbol])
+}
+
+model Portfolio {
+  id        String          @id @default(cuid())
+  name      String          @default("Main Portfolio")
+  userId    String
+  user      User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  holdings  Holding[]
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @updatedAt
+}
+
+model Holding {
+  id          String    @id @default(cuid())
+  symbol      String
+  quantity    Float
+  avgPrice    Float
+  portfolioId String
+  portfolio   Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+  updatedAt   DateTime  @updatedAt
+}
+
+model Order {
+  id        String      @id @default(cuid())
+  symbol    String
+  side      OrderSide
+  quantity  Float
+  price     Float?
+  status    OrderStatus @default(PENDING)
+  userId    String
+  user      User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime    @default(now())
+}
+
+model TradingSignal {
+  id          String     @id @default(cuid())
+  symbol      String
+  signal      SignalType
+  strength    Float
+  rsi         Float?
+  macd        Float?
+  ma50        Float?
+  ma200       Float?
+  reason      String
+  createdAt   DateTime   @default(now())
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  title     String
+  message   String
+  read      Boolean  @default(false)
+  type      String   @default("info")
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}
+
+model ChatMessage {
+  id        String   @id @default(cuid())
+  role      String
+  content   String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}
+
+model PriceAlert {
+  id        String   @id @default(cuid())
+  symbol    String
+  target    Float
+  direction String
+  triggered Boolean  @default(false)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}
+
+model NewsArticle {
+  id          String   @id @default(cuid())
+  title       String
+  summary     String
+  source      String
+  url         String
+  imageUrl    String?
+  publishedAt DateTime
+  symbols     String[]
+  createdAt   DateTime @default(now())
+}

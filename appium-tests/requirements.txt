@@ -1,0 +1,5 @@
+Appium-Python-Client==3.9.0
+pytest==7.4.0
+pytest-xdist==3.2.3
+pandas==2.2.2
+openpyxl==3.1.2

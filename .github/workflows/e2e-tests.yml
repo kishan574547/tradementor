@@ -1,0 +1,39 @@
+name: E2E Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  selenium:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install backend deps
+        working-directory: backend
+        run: npm ci
+      - name: Install frontend deps
+        working-directory: frontend
+        run: npm ci --legacy-peer-deps
+      - name: Install selenium tests deps
+        working-directory: selenium-tests
+        run: npm ci
+      - name: Start backend
+        working-directory: backend
+        run: npm run dev &
+      - name: Wait for services
+        run: sleep 20
+      - name: Run selenium generated tests
+        working-directory: selenium-tests
+        run: npm run test:generated
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: selenium-results
+          path: selenium-tests/test-results

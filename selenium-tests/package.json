@@ -1,0 +1,24 @@
+{
+  "name": "tradementor-selenium-tests",
+  "version": "1.0.0",
+  "description": "Selenium E2E tests for TradeMentor",
+  "scripts": {
+    "test": "mocha tests/**/*.test.js --timeout 120000 --exit",
+    "test:login": "mocha tests/login.test.js --timeout 120000 --exit",
+    "test:dashboard": "mocha tests/dashboard.test.js --timeout 120000 --exit",
+    "test:portfolio": "mocha tests/portfolio.test.js --timeout 120000 --exit",
+    "test:generated": "mocha tests/generated_web_tests.js --timeout 120000 --exit",
+    "report": "node report_generator.js"
+  },
+  "devDependencies": {
+    "selenium-webdriver": "^4.20.0",
+    "mocha": "^10.2.0",
+    "chai": "^4.3.10",
+    "dotenv": "^16.3.1",
+    "csv": "^5.6.0",
+    "xlsx": "^0.18.5"
+  },
+  "keywords": ["selenium", "e2e", "testing", "tradementor"],
+  "author": "TradeMentor Team",
+  "license": "MIT"
+}
