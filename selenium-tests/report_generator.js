@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const csv = require('csv');
 const xlsx = require('xlsx');
 
 function csvToXlsx(csvPath, xlsxPath) {

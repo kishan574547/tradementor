@@ -15,7 +15,6 @@
     "mocha": "^10.2.0",
     "chai": "^4.3.10",
     "dotenv": "^16.3.1",
-    "csv": "^5.6.0",
     "xlsx": "^0.18.5"
   },
   "keywords": ["selenium", "e2e", "testing", "tradementor"],
