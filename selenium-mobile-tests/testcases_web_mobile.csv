@@ -1,0 +1,101 @@
+id,case_id,title,description,expected,priority
+1,WT-001,App launch,Open the mobile web app home page,Home page loads,High
+2,WT-002,Login page loads,Navigate to login page,Login form visible,High
+3,WT-003,User login,Login with test credentials,User dashboard visible,High
+4,WT-004,View stocks,Open stocks list,Stocks list loads,Medium
+5,WT-005,Search stock,Search for ticker ABC,Results displayed,Medium
+6,WT-006,Open stock detail,Open detail for ticker ABC,Detail page shows chart,High
+7,WT-007,Add to watchlist,Add ticker ABC to watchlist,Item present in watchlist,Medium
+8,WT-008,Remove from watchlist,Remove ticker ABC from watchlist,Item removed,Medium
+9,WT-009,Create order,Place a market order,Order created,High
+10,WT-010,Cancel order,Cancel a pending order,Order cancelled,High
+11,WT-011,Portfolio loads,Open portfolio page,Positions displayed,High
+12,WT-012,Open notifications,Open notifications panel,Notifications visible,Low
+13,WT-013,Open settings,Navigate to settings,Settings page loads,Low
+14,WT-014,Change password,Update account password,Success message shown,High
+15,WT-015,API key page,Open API keys management,Keys list loads,Low
+16,WT-016,Subscription page,Open subscription view,Subscription info visible,Low
+17,WT-017,Dashboard charts,Render main dashboard charts,Charts render correctly,Medium
+18,WT-018,Leaderboard loads,Open leaderboard view,Leaderboard shows users,Low
+19,WT-019,Open news,Open news listing,News items present,Low
+20,WT-020,Article open,Open a news article,Article content loads,Low
+21,WT-021,Indicator guide,Open indicator guide,Guide content present,Low
+22,WT-022,Open screener,Open screener page,Screener UI visible,Medium
+23,WT-023,Run screener,Run a sample screener,Results shown,Medium
+24,WT-024,Export data,Export portfolio CSV,File downloaded,Low
+25,WT-025,Import watchlist,Import watchlist CSV,Items added,Low
+26,WT-026,Notification settings,Toggle notification setting,Preference saved,Low
+27,WT-027,Profile update,Update profile name,Name updated,Low
+28,WT-028,Logout,Sign out of account,Redirect to login,High
+29,WT-029,Register,Open registration form,Form visible,High
+30,WT-030,Register submit,Submit new user,Welcome message,High
+31,WT-031,Search suggestions,Type in search box,Suggestions appear,Medium
+32,WT-032,Chart timeframe,Change timeframe on chart,Chart updates,Medium
+33,WT-033,Add indicator,Add RSI indicator,Indicator displayed,Medium
+34,WT-034,Remove indicator,Remove RSI indicator,Indicator removed,Medium
+35,WT-035,Fullscreen chart,Toggle fullscreen,Chart fills viewport,Low
+36,WT-036,Place limit order,Place a limit order,Order pending,High
+37,WT-037,Modify order,Modify existing order,Order updated,High
+38,WT-038,Order history,Open order history,Past orders displayed,Low
+39,WT-039,Account billing,Open billing page,Billing details visible,Low
+40,WT-040,Invoices,Download invoice,Invoice downloaded,Low
+41,WT-041,Help center,Open help center,Help topics listed,Low
+42,WT-042,Report bug,Submit bug report,Success message shown,Low
+43,WT-043,Referral page,Open referrals page,Referral info shown,Low
+44,WT-044,Two-factor auth,Enable 2FA,2FA enabled,High
+45,WT-045,Notification badge,Receive notification,Badge increments,Low
+46,WT-046,Search filters,Apply filters,Filtered results shown,Medium
+47,WT-047,Pagination,Navigate paginated list,Next page loads,Low
+48,WT-048,Keyboard shortcuts,Use shortcut,Action triggered,Low
+49,WT-049,Mobile menu open,Open mobile menu,Menu visible,Low
+50,WT-050,Dark mode toggle,Toggle dark mode,Theme changes,Low
+51,WT-051,Share link,Share stock link,Share dialog opens,Low
+52,WT-052,Download chart,Download chart image,File downloaded,Low
+53,WT-053,Language change,Change language,UI updates,Low
+54,WT-054,API test call,Call sample API,Valid response,Medium
+55,WT-055,Widget add,Add dashboard widget,Widget appears,Low
+56,WT-056,Widget remove,Remove dashboard widget,Widget removed,Low
+57,WT-057,Live price update,Observe live prices,Prices update,High
+58,WT-058,Trade history,Open trade history,Trades listed,Low
+59,WT-059,Position close,Close a position,Position closed,High
+60,WT-060,Alerts setup,Create price alert,Alert created,Medium
+61,WT-061,Alerts trigger,Trigger alert,Notification received,High
+62,WT-062,Indicator settings,Edit indicator settings,Settings saved,Low
+63,WT-063,Chart zoom,Zoom chart,Zoom applied,Low
+64,WT-064,Annotations,Add chart annotation,Annotation visible,Low
+65,WT-065,Order book,Open order book,Book data shown,Medium
+66,WT-066,Depth chart,Open depth chart,Depth chart visible,Low
+67,WT-067,Market news filter,Filter market news,Filtered articles shown,Low
+68,WT-068,Saved searches,Save search,Search saved,Low
+69,WT-069,Load saved search,Load saved search,Results restored,Low
+70,WT-070,Community posts,Open community posts,Posts shown,Low
+71,WT-071,Comment on post,Post a comment,Comment appears,Low
+72,WT-072,Like post,Like a post,Like count increments,Low
+73,WT-073,Follow user,Follow another user,Following list updated,Low
+74,WT-074,Unfollow user,Unfollow a user,Following list updated,Low
+75,WT-075,View tutorial,Open tutorial video,Player loads,Low
+76,WT-076,Complete tutorial,Finish tutorial,Completion recorded,Low
+77,WT-077,Referral reward,Claim referral reward,Reward applied,Low
+78,WT-078,Two-way sync,Sync settings across devices,Settings match,Low
+79,WT-079,Data retention,Verify data retention,Data present,Low
+80,WT-080,Privacy settings,Update privacy setting,Preference saved,Low
+81,WT-081,Export chart data,Export chart CSV,File downloaded,Low
+82,WT-082,Import indicators,Import indicator settings,Indicators added,Low
+83,WT-083,API key regen,Regenerate API key,New key shown,Low
+84,WT-084,Session timeout,Wait for timeout,User logged out,Low
+85,WT-085,Login remember,Use remember me,Session persists,Low
+86,WT-086,Clear cache,Clear app cache,Data cleared,Low
+87,WT-087,Enable beta,Enable beta features,Beta enabled,Low
+88,WT-088,Disable beta,Disable beta,Beta disabled,Low
+89,WT-089,Cloud sync,Trigger cloud sync,Sync success,Low
+90,WT-090,Feedback form,Submit feedback,Thanks shown,Low
+91,WT-091,Search history,View search history,History shown,Low
+92,WT-092,Clear history,Clear search history,History cleared,Low
+93,WT-093,Custom layout,Save custom layout,Layout saved,Low
+94,WT-094,Reset layout,Reset to default,Layout reset,Low
+95,WT-095,API docs,Open API docs,Docs visible,Low
+96,WT-096,Rate app,Open rate dialog,Dialog appears,Low
+97,WT-097,Open help article,Open specific help article,Article loads,Low
+98,WT-098,Contact support,Open support chat,Chat connects,Low
+99,WT-099,Account delete,Initiate delete account,Confirmation shown,High
+100,WT-100,Confirm delete,Confirm delete account,Account removed,High

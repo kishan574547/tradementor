@@ -1,0 +1,15 @@
+{
+  "name": "selenium-mobile-tests",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test:mobile": "mocha tests/generated_mobile_tests.js --timeout 60000",
+    "report": "node ../scripts/generate_combined_report.js"
+  },
+  "dependencies": {
+    "selenium-webdriver": "^4.20.0",
+    "mocha": "^10.2.0",
+    "chai": "^4.3.10",
+    "xlsx": "^0.18.5"
+  }
+}
