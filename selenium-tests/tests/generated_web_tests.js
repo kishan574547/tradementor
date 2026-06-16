@@ -41,6 +41,29 @@ describe('Generated Web Test Cases', function() {
       try {
         // Basic navigation test: navigate to route and ensure page loads
         const route = (testcase.route && testcase.route !== '') ? testcase.route : '/';
+
+        // If route appears to be a protected route, perform login first
+        const protectedSegments = ['dashboard', 'stock', 'profile', 'orders', 'portfolio', 'settings', 'reports', 'backtester', 'positions', 'watchlist', 'signals', 'analytics'];
+        const needsAuth = protectedSegments.some(seg => route.includes(seg));
+        if (needsAuth) {
+          // perform login
+          await navigateTo(driver, '/login');
+          await waitForPageLoad(driver, config.waits.long);
+          try {
+            const emailEl = await driver.findElement(By.id('email'));
+            const passEl = await driver.findElement(By.id('password'));
+            const loginBtn = await driver.findElement(By.id('login-button'));
+            await emailEl.clear();
+            await emailEl.sendKeys(config.testUser.email);
+            await passEl.clear();
+            await passEl.sendKeys(config.testUser.password);
+            await loginBtn.click();
+            await waitForPageLoad(driver, config.waits.long);
+          } catch (e) {
+            // If login elements are not found, continue to navigate directly (test may be running against public build)
+          }
+        }
+
         await navigateTo(driver, route);
         await waitForPageLoad(driver, config.waits.long);
         await sleep(500);
